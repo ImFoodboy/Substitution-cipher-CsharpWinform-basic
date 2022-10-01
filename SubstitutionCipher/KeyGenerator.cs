@@ -14,7 +14,7 @@ namespace SubstitutionCipher
             _random = new Random();
         }
 
-        public Key Generate(int countOfScammerTypes)
+        public Key Generate()
         {
             GenerateKeys();
             return _key;
@@ -28,8 +28,9 @@ namespace SubstitutionCipher
                 int substitute = 0;
                 do
                 {
-                    substitute = _random.Next(0, 1023);
-                } while (usedSubstitutes.Contains(substitute) && i != substitute);
+                    substitute = _random.Next(0, 1024);
+                    
+                } while (usedSubstitutes.Contains(substitute) || i == substitute);
                 usedSubstitutes.Add(substitute);
                 _key.Substitutes.Add((char)i, (char)substitute);
             }

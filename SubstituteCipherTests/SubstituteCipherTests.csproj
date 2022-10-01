@@ -4,14 +4,14 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{18F20252-9FB6-4E80-AAF5-7EF811EF4816}</ProjectGuid>
-        <OutputType>Exe</OutputType>
+        <ProjectGuid>{7E61AC5A-A980-4E19-A152-E456F35832E6}</ProjectGuid>
+        <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+        <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>SubstitutionCipher</RootNamespace>
-        <AssemblyName>SubstitutionCipher</AssemblyName>
+        <RootNamespace>SubstituteCipherTests</RootNamespace>
+        <AssemblyName>SubstituteCipherTests</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
-        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,13 +37,20 @@
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
+        <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb">
+            <HintPath>..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
+        </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Key.cs" />
-        <Compile Include="KeyGenerator.cs" />
-        <Compile Include="Program.cs" />
+        <Compile Include="CipherProcessorTests.cs" />
+        <Compile Include="KeyGeneratorTest.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="CipherProcessor.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\SubstitutionCipher\SubstitutionCipher.csproj">
+        <Project>{18f20252-9fb6-4e80-aaf5-7ef811ef4816}</Project>
+        <Name>SubstitutionCipher</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
